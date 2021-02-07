@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from '../styles/Header.module.css'
 import Link from 'next/link'
-import Image from 'next/image'
+import logo from './header_logo.png'
 import SearchIcon from '@material-ui/icons/Search'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
-import { useStateValue } from '../context/StateProvider'
+import { useStateValue } from '../context/stateProvider'
 
 function Header() {
     const [{ user, basket }, dispatch] = useStateValue()
@@ -16,8 +16,8 @@ function Header() {
     }
     return (
         <div className={styles.header}>
-            <Link to='/'>
-                <Image className={styles.header_logo} src='/header_logo.png' />
+            <Link href='/'>
+                <img className={styles.header_logo} src={logo} />
             </Link>
             <div className={styles.header_search}>
                 <input
@@ -28,7 +28,7 @@ function Header() {
                 <SearchIcon className={styles.header_searchIcon} />
             </div>
             <div className={styles.header_nav}>
-                <Link to={!user && '/login'}>
+                <Link href={!user && '/login'}>
                     <div
                         onClick={handleAuthentication}
                         className={styles.header_option}
@@ -47,7 +47,7 @@ function Header() {
                         & Orders
                     </span>
                 </div>
-                <Link to='/checkout'>
+                <Link href='/checkout'>
                     <div className={styles.header_optionBasket}>
                         <ShoppingCartIcon />
                         <span

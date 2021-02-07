@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import './Payment.css'
-import { useStateValue } from './StateProvider'
+import styles from '../styles/Payment.module.css'
+import { useStateValue } from '../context/stateProvider'
 import CheckoutProduct from './CheckoutProduct'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import FlipMove from 'react-flip-move'
 import { CardElement } from '@stripe/react-stripe-js'
 import CurrencyFormat from 'react-currency-format'
@@ -11,27 +12,23 @@ function Payment() {
     const [{ basket, user }] = useStateValue()
 
     return (
-        <div className='payment'>
-            <div className='payment_container'>
-                <h1>
-                    Checkout ({' '}
-                    <Link to='/checkout'>{basket?.length} items</Link> )
-                </h1>
-                <div className='payment_section'>
-                    <div className='payment_title'>
+        <div className={styles.payment}>
+            <div className={styles.payment_container}>
+                <div className={styles.payment_section}>
+                    <div className={styles.payment_title}>
                         <h3>Delivery Address</h3>
                     </div>
-                    <div className='payment_address'>
+                    <div className={styles.payment_address}>
                         <p>{user?.email}</p>
                         <p>1738 sk. No:128</p>
                         <p>Karsiyaka / Izmir</p>
                     </div>
                 </div>
-                <div className='payment_section'>
-                    <div className='payment_title'>
+                <div className={styles.payment_section}>
+                    <div className={styles.payment_title}>
                         <h3>Review items and delivery</h3>
                     </div>
-                    <div className='payment_items'>
+                    <div className={styles.payment_items}>
                         <FlipMove>
                             {basket.map((item, index) => (
                                 <CheckoutProduct
@@ -46,14 +43,14 @@ function Payment() {
                         </FlipMove>
                     </div>
                 </div>
-                <div className='payment_section'>
-                    <div className='payment_title'>
+                <div className={styles.payment_section}>
+                    <div className={styles.payment_title}>
                         <h3>Payment Method</h3>
                     </div>
-                    <div className='payment_details'>
+                    <div className={styles.payment_details}>
                         <form>
                             <CardElement />
-                            <div className='payment_priceContainer'>
+                            <div className={styles.payment_priceContainer}>
                                 <CurrencyFormat
                                     renderText={(value) => (
                                         <>

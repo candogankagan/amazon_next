@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
-import './CheckoutProduct.css'
-import { useStateValue } from './StateProvider'
+import styles from '../styles/CheckoutProduct.module.css'
+import { useStateValue } from '../context/stateProvider'
 
 const CheckoutProduct = forwardRef(
     ({ id, image, title, price, rating }, ref) => {
@@ -13,15 +13,15 @@ const CheckoutProduct = forwardRef(
         }
 
         return (
-            <div ref={ref} className='checkoutProduct'>
-                <img className='checkoutProduct_image' src={image} />
-                <div className='checkoutProduct_info'>
-                    <p className='checkoutProduct_title'>{title}</p>
-                    <p className='checkoutProduct_price'>
+            <div ref={ref} className={styles.checkoutProduct}>
+                <img className={styles.checkoutProduct_image} src={image} />
+                <div className={styles.checkoutProduct_info}>
+                    <p className={styles.checkoutProduct_title}>{title}</p>
+                    <p className={styles.checkoutProduct_price}>
                         <small>$</small>
                         <strong>{price}</strong>
                     </p>
-                    <div className='checkoutProduct_rating'>
+                    <div className={styles.checkoutProduct_rating}>
                         {Array(rating)
                             .fill()
                             .map(() => (

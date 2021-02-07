@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import './Login.css'
-import logo from './loginLogo.png'
-import { Link, useHistory } from 'react-router-dom'
-import { auth } from './firebase'
+import styles from '../styles/Login.module.css'
+import Link from 'next/link'
+import Logo from './loginLogo.png'
+// import Router from 'next/router'
+// import { Link, useHistory } from 'react-router-dom'
+// import { auth } from './firebase'
+import { useRouter } from 'next/router'
 
 function Login() {
-    const history = useHistory()
+    // const history = useHistory()
+    const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -14,7 +18,7 @@ function Login() {
 
         auth.signInWithEmailAndPassword(email, password)
             .then((a) => {
-                history.push('/')
+                router.push('/')
             })
             .catch((err) => alert(err.message))
     }
@@ -24,18 +28,17 @@ function Login() {
 
         auth.createUserWithEmailAndPassword(email, password)
             .then((auth) => {
-                history.push('/')
+                router.push('/')
             })
             .catch((err) => alert(err.message))
     }
 
     return (
-        <div className='login'>
-            <Link to='/'>
-                <img className='login_logo' src={logo} />
+        <div className={styles.login}>
+            <Link href='/'>
+                <img className={styles.login_logo} src={Logo} />
             </Link>
-
-            <div className='login_container'>
+            <div className={styles.login_container}>
                 <h1>Sign-in</h1>
 
                 <form>
@@ -54,7 +57,7 @@ function Login() {
                     />
                     <br />
                     <button
-                        className='login_signInButton'
+                        className={styles.login_signInButton}
                         type='submit'
                         onClick={signIn}
                     >
@@ -67,7 +70,10 @@ function Login() {
                     Notice and our Interest-Based Ads Notice.
                 </p>
 
-                <button className='login_registerButton' onClick={register}>
+                <button
+                    className={styles.login_registerButton}
+                    onClick={register}
+                >
                     Create your Amazon Account
                 </button>
             </div>
