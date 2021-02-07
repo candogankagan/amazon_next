@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import styles from '../styles/Login.module.css'
 import Link from 'next/link'
-import Logo from './loginLogo.png'
-// import Router from 'next/router'
-// import { Link, useHistory } from 'react-router-dom'
-// import { auth } from './firebase'
+import Logo from '../images/loginLogo.png'
+import { auth } from './firebase'
 import { useRouter } from 'next/router'
 
 function Login() {
-    // const history = useHistory()
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

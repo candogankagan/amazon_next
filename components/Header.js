@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/Header.module.css'
 import Link from 'next/link'
-import logo from './header_logo.png'
+import logo from '../images/header_logo.png'
 import SearchIcon from '@material-ui/icons/Search'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import { useStateValue } from '../context/stateProvider'
