@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/Header.module.css'
 import Link from 'next/link'
+import { auth } from '../services/firebase'
 import logo from '../images/header_logo.png'
 import SearchIcon from '@material-ui/icons/Search'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
@@ -8,6 +9,7 @@ import { useStateValue } from '../context/stateProvider'
 
 function Header() {
     const [{ user, basket }, dispatch] = useStateValue()
+    console.log(basket, user)
 
     const handleAuthentication = () => {
         if (user) {

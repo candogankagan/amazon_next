@@ -10,7 +10,6 @@ function Login() {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [{ user, basket }, dispatch] = useStateValue()
 
     const signIn = (e) => {
         e.preventDefault()
@@ -32,6 +31,7 @@ function Login() {
             .catch((err) => alert(err.message))
     }
 
+    const [{ user }, dispatch] = useStateValue()
     // useEffect(() => {
     //     auth.onAuthStateChanged((authUser) => {
     //         console.log('THE USER IS >>>', authUser)

@@ -10,7 +10,6 @@ function Login() {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [{ user, basket }, dispatch] = useStateValue()
 
     const signIn = (e) => {
         e.preventDefault()
@@ -32,23 +31,24 @@ function Login() {
             .catch((err) => alert(err.message))
     }
 
-    // useEffect(() => {
-    //     auth.onAuthStateChanged((authUser) => {
-    //         console.log('THE USER IS >>>', authUser)
+    const [{ user }, dispatch] = useStateValue()
+    useEffect(() => {
+        auth.onAuthStateChanged((authUser) => {
+            console.log('THE USER IS >>>', authUser)
 
-    //         if (authUser) {
-    //             dispatch({
-    //                 type: 'SET_USER',
-    //                 user: authUser,
-    //             })
-    //         } else {
-    //             dispatch({
-    //                 type: 'SET_USER',
-    //                 user: null,
-    //             })
-    //         }
-    //     })
-    // }, [])
+            if (authUser) {
+                dispatch({
+                    type: 'SET_USER',
+                    user: authUser,
+                })
+            } else {
+                dispatch({
+                    type: 'SET_USER',
+                    user: null,
+                })
+            }
+        })
+    }, [])
 
     return (
         <div className={styles.login}>

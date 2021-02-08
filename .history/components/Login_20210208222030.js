@@ -10,8 +10,7 @@ function Login() {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [{ user, basket }, dispatch] = useStateValue()
-
+    const [{ user }, dispatch] = useStateValue()
     const signIn = (e) => {
         e.preventDefault()
 
