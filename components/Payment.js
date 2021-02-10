@@ -18,7 +18,7 @@ function Payment() {
                     </div>
                     <div className={styles.payment_address}>
                         <p>{user?.email}</p>
-                        <p>1738 sk. No:128</p>
+                        <p>Yali Mah. 6507/1 sk.</p>
                         <p>Karsiyaka / Izmir</p>
                     </div>
                 </div>

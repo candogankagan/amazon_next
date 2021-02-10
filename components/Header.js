@@ -9,13 +9,18 @@ import { useStateValue } from '../context/stateProvider'
 
 function Header() {
     const [{ user, basket }, dispatch] = useStateValue()
-    console.log(basket, user)
 
     const handleAuthentication = () => {
         if (user) {
             auth.signOut()
+            dispatch({
+                type: 'SET_USER',
+                user: null,
+            })
+            console.log(user)
         }
     }
+
     return (
         <div className={styles.header}>
             <Link href='/'>
@@ -30,13 +35,13 @@ function Header() {
                 <SearchIcon className={styles.header_searchIcon} />
             </div>
             <div className={styles.header_nav}>
-                <Link href={!user && '/login'}>
+                <Link href={user ? '/' : '/login'}>
                     <div
                         onClick={handleAuthentication}
                         className={styles.header_option}
                     >
                         <span className={styles.header_optionLineOn}>
-                            {user ? `Welcome, ${user.email}` : 'Hello Guest'}
+                            {user ? `Welcome, ${user}` : 'Hello Guest'}
                         </span>
                         <span className={styles.header_optionLineTwo}>
                             {user ? 'Sign Out' : 'Sign In'}

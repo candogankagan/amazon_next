@@ -2,11 +2,9 @@ import React from 'react'
 import styles from '../styles/Subtotal.module.css'
 import CurrencyFormat from 'react-currency-format'
 import { useStateValue } from '../context/stateProvider'
-// import { useHistory } from 'react-router-dom'
 import { useRouter } from 'next/router'
 
 function Subtotal() {
-    // const history = useHistory()
     const router = useRouter()
     const [{ basket }, dispatch] = useStateValue()
     console.log(basket)
