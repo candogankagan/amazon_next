@@ -39,6 +39,7 @@ function Header() {
                     <div
                         onClick={handleAuthentication}
                         className={styles.header_option}
+                        id={styles.signIn}
                     >
                         <span className={styles.header_optionLineOn}>
                             {user ? `Welcome, ${user}` : 'Hello Guest'}
