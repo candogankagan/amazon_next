@@ -4,19 +4,25 @@ import Link from 'next/link'
 import Logo from '../images/loginLogo.png'
 import { auth } from '../services/firebase'
 import { useRouter } from 'next/router'
-import { useStateValue } from '../context/StateProvider'
+import { useStateValue } from '../context/stateProvider'
 
 function Login() {
     const router = useRouter()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [{ user, basket }, dispatch] = useStateValue()
+    const [{}, dispatch] = useStateValue()
 
     const signIn = (e) => {
         e.preventDefault()
 
         auth.signInWithEmailAndPassword(email, password)
             .then((a) => {
+                console.log(a)
+                dispatch({
+                    type: 'SET_USER',
+                    user: a.user.email,
+                })
+
                 router.push('/')
             })
             .catch((err) => alert(err))
@@ -31,24 +37,6 @@ function Login() {
             })
             .catch((err) => alert(err.message))
     }
-
-    // useEffect(() => {
-    //     auth.onAuthStateChanged((authUser) => {
-    //         console.log('THE USER IS >>>', authUser)
-
-    //         if (authUser) {
-    //             dispatch({
-    //                 type: 'SET_USER',
-    //                 user: authUser,
-    //             })
-    //         } else {
-    //             dispatch({
-    //                 type: 'SET_USER',
-    //                 user: null,
-    //             })
-    //         }
-    //     })
-    // }, [])
 
     return (
         <div className={styles.login}>
