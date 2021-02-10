@@ -1,9 +1,12 @@
 import firebase from 'firebase'
 
 const firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FİREBASE_API_KEY,
-    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.NEXT_PUBLIC_FİREBASE_PROJECT_ID,
+    apiKey: 'AIzaSyBYBIDyHJeayXvqDcyXoYFy7txcZq59h38',
+    authDomain: 'next-f0454.firebaseapp.com',
+    projectId: 'next-f0454',
+    storageBucket: 'next-f0454.appspot.com',
+    messagingSenderId: '580246126071',
+    appId: '1:580246126071:web:c9d450b3201932c6a902f2',
 }
 
 if (!firebase.apps.length) {
