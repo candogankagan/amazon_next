@@ -11,6 +11,7 @@
 .header_logo {
     width: 95px;
     object-fit: contain;
+    cursor: pointer;
     margin: 1px 40px;
 }
 
@@ -28,6 +29,8 @@
 }
 
 .header_searchIcon {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     padding: 5px;
     background-color: #cd9042;
 }
@@ -63,5 +66,8 @@
     flex-direction: column;
     margin: 0 10px;
     color: white;
+}
+
+#signIn {
     cursor: pointer;
 }
