@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../styles/Subtotal.module.css'
 import CurrencyFormat from 'react-currency-format'
-import { useStateValue } from '../context/stateProvider'
+import { useStateValue } from '../context/StateProvider'
 import { useRouter } from 'next/router'
 
 function Subtotal() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/globals.css'
-import { StateProvider } from '../context/stateProvider'
-import { initialState, reducer } from '../context/reducer'
+import { StateProvider } from '../context/StateProvider'
+import { initialState, reducer } from '../context/Reducer'
 
 function MyApp({ Component, pageProps }) {
     return (

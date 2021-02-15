@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from '../styles/Payment.module.css'
-import { useStateValue } from '../context/stateProvider'
+import { useStateValue } from '../context/StateProvider'
 import CheckoutProduct from './CheckoutProduct'
 import FlipMove from 'react-flip-move'
 import { CardElement } from '@stripe/react-stripe-js'

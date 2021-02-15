@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Logo from '../images/loginLogo.png'
 import { auth } from '../services/firebase'
 import { useRouter } from 'next/router'
-import { useStateValue } from '../context/stateProvider'
+import { useStateValue } from '../context/StateProvider'
 
 function Login() {
     const router = useRouter()
